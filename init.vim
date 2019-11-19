@@ -25,9 +25,16 @@ Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'nanotech/jellybeans.vim'
-Plug 'vim-airline/vim-airline'
-
-
+"Plug 'vim-airline/vim-airline'
+Plug 'rkitover/vimpager'
+Plug 'ofavre/vimcat'
+Plug 'JamshedVesuna/vim-markdown-preview'
+Plug 'junegunn/limelight.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'editorconfig/editorconfig'
+Plug 'morhetz/gruvbox'
+Plug 'sjl/gundo.vim'
+Plug 'sk1418/blockit'
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
      \ 'do': 'yarn install',
@@ -40,9 +47,14 @@ Plug 'prettier/vim-prettier', {
 " Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'mbbill/undotree', { 'on': 'UndoTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTrkkkeeToggle' }
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
+
+" ==========  VISUAL SETTINGS  ==========
 let g:SimplenoteUsername = "chadboyce@gmail.com"
 let g:SimplenotePassword = "iwtfch"
 
@@ -50,13 +62,30 @@ let g:SimplenotePassword = "iwtfch"
  "   let &packpath = &runtimepath
 "source ~/.vimrc
 
+" =========---------  SETTINGS  ---------========
+set nobackup         " Don't create annoying backup files
+set noswapfile       " Dont' use swapfile
+set pastetoggle=<F2> " Paste mode toggle to paste code properly
+set scrolloff=5      " start scrolling 5 lines before edge of viewpoint
+set number
 
+
+" =========---------  VISUAL SETTINGS  ---------=========
+set termguicolors    " sets terminal to true colors (I think)
+" set t_Co=256         " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set background=dark
-
-" syntax highlighting
-syntax enable
-colorscheme rigel
+colorscheme gruvbox
+"colorscheme rigel
 "colorscheme jellybeans
+syntax enable 
+
+" =========---------  TABS  ---------=========
+set tabstop=2        " 4 whitespaces for tabs visual presentation
+set shiftwidth=2     " shift lines by 4 spaces
+set smarttab         " set tabs for a shifttabs logic
+set expandtab        " expand tabs into spaces
+set smartindent
+
 
 " CDC = Change to Directory of Current file
 command CDC cd %:p:h
@@ -65,12 +94,47 @@ command CDC cd %:p:h
 command Unsplit g/^.\{79}\S$/normal Jx
 
 
+" Sets the color of the statusbar (airline)
+let g:rigel_airline = 1
+let g:airline_theme = 'rigel'
+
 " Sets the color of the statusbar (lightline)
 let g:rigel_lightline = 1
 let g:lightline = { 'colorsheme': 'rigel' }
 
-" Sets the color of the statusbar (airline)
-let g:rigel_airline = 1
-let g:airline_theme = 'rigel'
+set rtp^=/usr/share/vimpager
+
+let vim_markdown_preview_github=1
+let vim_markdown_preview_use_xdg_open=1
+let vim_markdown_preview_browser='Google Chrome'
+
+" Startify config optoins
+let g:startify_custom_indices = map(range(1,100), 'string(v:val)')
+let g:startify_change_to_dir = 1
+let g:ascii = [
+  \ ' _____  ___    _______    ______  ___      ___  __     ___      ___ ',
+  \ '(\"   \|"  \  /"     "|  /    " \|"  \    /"  ||" \   |"  \    /"  |',
+  \ '|.\\   \    |(: ______) // ____  \\   \  //  / ||  |   \   \  //   |',
+  \ '|: \.   \\  | \/    |  /  /    ) :)\\  \/. ./  |:  |   /\\  \/.    |',
+  \ '|.  \    \. | // ___)_(: (____/ //  \.    //   |.  |  |: \.        |',
+  \ '|    \    \ |(:      "|\        /    \\   /    /\  |\ |.  \    /:  |',
+  \ ' \___|\____\) \_______) \"_____/      \__/    (__\_|_)|___|\__/|___|',
+  \ ''
+  \]
+
+"eeeeeee..eeeeee..eeeeee..eee....eee.eee.eee......eee.
+"@@@@@@@@:@@@@@@:@@@@@@@@:@@@::::@@@:@@@:@@@@::::@@@@:
+"%%%--%%%-%%%----%%%--%%%-%%%----%%%-%%%-%%%%%--%%%%%-
+"&&&++&&&+&&&&&++&&&++&&&+&&&++++&&&+&&&+&&&&&&&&&&&&+
+"|||**|||*|||||**|||**|||**|||**|||**|||*|||*||||*|||*
+"!!!==!!!=!!!====!!!==!!!===!!!!!!===!!!=!!!==!!==!!!=
+":::##:::#::::::#::::::::####::::####:::#:::######:::#
+"...@@...@......@@......@@@@@@..@@@@@...@...@@@@@@...@
+
+
+
+let g:startify_custom_header =
+    \ 'startify#pad(g:ascii + startify#fortune#boxed())'
+
 
 
