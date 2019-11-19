@@ -19,7 +19,7 @@ Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'wincent/command-t'
 Plug '~/.local/share/nvim/plugged/csapprox'
 Plug 'mhinz/vim-startify'
-Plug 'freeo/vim-kalisi'
+Plug 'freeo/vim-salisi'
 Plug 'rigellute/rigel'
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
@@ -35,6 +35,9 @@ Plug 'editorconfig/editorconfig'
 Plug 'morhetz/gruvbox'
 Plug 'sjl/gundo.vim'
 Plug 'sk1418/blockit'
+Plug 'fadein/vim-FIGlet'
+
+
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
      \ 'do': 'yarn install',
@@ -136,5 +139,7 @@ let g:ascii = [
 let g:startify_custom_header =
     \ 'startify#pad(g:ascii + startify#fortune#boxed())'
 
+set showcmd
+:let mapleader = ","
 
 
