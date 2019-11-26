@@ -1,5 +1,4 @@
 " Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -36,6 +35,8 @@ Plug 'morhetz/gruvbox'
 Plug 'sjl/gundo.vim'
 Plug 'sk1418/blockit'
 Plug 'fadein/vim-FIGlet'
+Plug 'justinmk/vim-sneak'
+Plug 'freeo/vim-kalisi'
 
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
