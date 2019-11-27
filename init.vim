@@ -37,7 +37,7 @@ Plug 'sk1418/blockit'
 Plug 'fadein/vim-FIGlet'
 Plug 'justinmk/vim-sneak'
 Plug 'freeo/vim-kalisi'
-
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
@@ -52,7 +52,7 @@ Plug 'prettier/vim-prettier', {
 
 " On-demand loading
 Plug 'mbbill/undotree', { 'on': 'UndoTreeToggle' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTrkkkeeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 call plug#end()
@@ -143,4 +143,16 @@ let g:startify_custom_header =
 set showcmd
 :let mapleader = ","
 
+" =========---------  MerdTREE Settings  ---------=========
+
+noremap <Leader>f :NERDTreeToggle<Enter>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+" Automatically close NerdTree when you open a file
+let NERDTreeQuitOnOpen = 1
+" automatically close a tab if the only remaining window is NerdTree (also
+" taken from the Readme)
+" autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
+" Automatically delete the buffer of the file you just deleted with NerdTree
+let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeDirArrows = 1
 
