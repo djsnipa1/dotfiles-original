@@ -1,0 +1,25 @@
+directory: /mnt/c/Users/Chad/Music/beets
+import:
+    move: yes
+
+ui:
+    color: yes
+
+plugins: beatport spotify fromfilename edit web info
+
+playlist:
+    auto: no
+    relative_to: ~/Music
+    playlist_dir: ~/playlists
+
+amazon:
+    Access_Key_ID: AKIA3DL7LSKDPC3IR6EO
+    Secret_Access_Key: 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
+    preferred_regions: ["US"] # try to get tracks from amazon.com and amazon.fr if first failed, default to ["US"
+    asso_tag: beets #can be anything, I just set it to beets)
+
+importfeeds:
+   formats: m3u link
+   dir: ~/imports/
+   relative_to: ~/Music/
+   m3u_name: newfiles.m3u
