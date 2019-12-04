@@ -1,0 +1,68 @@
+#!/usr/bin/env
+alias vim=nvim
+alias v=nvim
+
+alias cls=clear
+
+alias weather="curl wttr.in/indianapolis"
+
+alias sudo=$'nocorrect sudo\t'
+#alias sudo='sudo '
+#alias nsudo='nocorrect sudo'
+
+alias cp='cpg -g'
+alias mv='mvg -g'
+
+alias ls='lsd'
+
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+alias gh='/mnt/c/Users/Chad/Documents/GitHub/'
+alias ~w='/mnt/c/Users/Chad/'
+alias videos='/mnt/c/Users/Chad/Videos/'
+alias documents='/mnt/c/Users/Chad/Documents/'
+
+alias qr=qrcode-terminal
+
+alias path='echo $PATH | tr ":" "\n" | nl'
+
+alias subl='"/mnt/c/Program Files/Sublime Text 3/subl.exe"'
+
+# sends a document via ... after a pipe
+alias ixio="curl -F 'f:1=<-' ix.io"
+
+alias open='cmd.exe /C start'
+
+# FUNCTIONS
+
+function path_remove {
+  # Delete path by parts so we can never accidentally remove sub paths
+  PATH=${PATH//":$1:"/":"} # delete any instances in the middle
+  PATH=${PATH/#"$1:"/} # delete any instance at the beginning
+  PATH=${PATH/%":$1"/} # delete any instance in the at the end
+}
+
+alias tb="nc termbin.com 9999"
+alias tbc="netcat termbin.com 9999 | clip.exe"
+
+alias py=python3
+
+alias starwars='telnet towel.blinkenlights.nl'
+
+alias matrix='cmatrix -ba'
+
+function delete_dirs {
+  find . -maxdepth 1 -type d -print0 | while IFS= read -r -d '' dir; do
+      [ $(du -s "$dir") -le 102400 ] && echo "$dir";
+#      [ $(du -s "$dir") -le 102400 ] && rm -f "$dir"
+done
+}
+
+alias mklink=" . ~/bin/mklink.sh"
+
+alias reddit='telnet redditbox.us'
+
+wslttythemes='/mnt/c/Users/Chad/AppData/Roaming/wsltty/themes'
