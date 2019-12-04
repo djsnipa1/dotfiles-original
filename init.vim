@@ -24,11 +24,10 @@ Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'nanotech/jellybeans.vim'
-"Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 Plug 'rkitover/vimpager'
 Plug 'ofavre/vimcat'
-Plug 'JamshedVesuna/vim-markdown-preview'
-Plug 'junegunn/limelight.vim'
+"Plug 'junegunn/limelight.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig'
 Plug 'morhetz/gruvbox'
@@ -38,6 +37,12 @@ Plug 'fadein/vim-FIGlet'
 Plug 'justinmk/vim-sneak'
 Plug 'freeo/vim-kalisi'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'zanglg/nova.vim'
+Plug 'lilydjwg/colorizer'
+Plug 'agude/vim-eldar'
+Plug 'flazz/vim-colorschemes'
+Plug 'felixhummel/setcolors.vim'
+Plug 'wakatime/vim-wakatime'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
@@ -76,12 +81,14 @@ set number
 
 " =========---------  VISUAL SETTINGS  ---------=========
 set termguicolors    " sets terminal to true colors (I think)
+syntax enable 
 " set t_Co=256         " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set background=dark
-colorscheme gruvbox
-"colorscheme rigel
+
+
+" colorscheme gruvbox
+colorscheme rigel
 "colorscheme jellybeans
-syntax enable 
 
 " =========---------  TABS  ---------=========
 set tabstop=2        " 4 whitespaces for tabs visual presentation
