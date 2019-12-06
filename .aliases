@@ -24,6 +24,8 @@ alias gh='/mnt/c/Users/Chad/Documents/GitHub/'
 alias ~w='/mnt/c/Users/Chad/'
 alias videos='/mnt/c/Users/Chad/Videos/'
 alias documents='/mnt/c/Users/Chad/Documents/'
+alias music='/mnt/c/Users/Chad/Music/'
+
 
 alias qr=qrcode-terminal
 
