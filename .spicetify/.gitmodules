@@ -1,0 +1,4 @@
+[submodule "Themes"]
+	path = Themes
+  url = git@github.com:morpheusthewhite/spicetify-themes.git
+  active = true
