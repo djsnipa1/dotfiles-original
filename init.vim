@@ -62,8 +62,16 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
+" =============  SET LEADER  ============
+let mapleader = ","
 
-" ==========  VISUAL SETTINGS  ==========
+" ============  REMAP KEYS  =============
+" map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+" map! <F3> <C-R>=strftime('%c')<CR>
+" nnoremap <silent> <F4> :lchdir %:p:h<CR>:pwd<CR>
+imap ,t <Esc>:tabnew<CR>
+
+" ============  SIMPLENOTE SETTINGS  ============
 let g:SimplenoteUsername = "chadboyce@gmail.com"
 let g:SimplenotePassword = "iwtfch"
 
@@ -77,7 +85,8 @@ set noswapfile       " Dont' use swapfile
 set pastetoggle=<F2> " Paste mode toggle to paste code properly
 set scrolloff=5      " start scrolling 5 lines before edge of viewpoint
 set number
-
+set spelllang=en
+" set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 
 " =========---------  VISUAL SETTINGS  ---------=========
 set termguicolors    " sets terminal to true colors (I think)
@@ -99,10 +108,10 @@ set smartindent
 
 
 " CDC = Change to Directory of Current file
-command CDC cd %:p:h
+" command CDC cd %:p:h
 
 " Unsplits long lines copied from terminal
-command Unsplit g/^.\{79}\S$/normal Jx
+" command Unsplit g/^.\{79}\S$/normal Jx
 
 
 " Sets the color of the statusbar (airline)
@@ -148,18 +157,18 @@ let g:startify_custom_header =
     \ 'startify#pad(g:ascii + startify#fortune#boxed())'
 
 set showcmd
-:let mapleader = ","
 
 " =========---------  MerdTREE Settings  ---------=========
 
 noremap <Leader>f :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+noremap <silent> <Leader>v :NERDTreeFind<CR>
 " Automatically close NerdTree when you open a file
 let NERDTreeQuitOnOpen = 1
-" automatically close a tab if the only remaining window is NerdTree (also
-" taken from the Readme)
 " autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
 " Automatically delete the buffer of the file you just deleted with NerdTree
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeDirArrows = 1
+let NERDTreeSortHiddenFirst = 1
+let NERDTreeShowHidden = 1
+
+let NERDTreeCustomOpenArgs = {'file':{'where': 't'}, 'dir':{'where':'t'}}
 
