@@ -40,7 +40,7 @@ Plug 'agude/vim-eldar'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug 'lukaszkorecki/workflowish'
-Pfszymanski/fzf-gitignore'lug 'junegunn/vim-peekaboo'
+Plug 'junegunn/vim-peekaboo'
 
 " INSTALLED AND CONIGURED AND PROBABLY USED
 Plug 'godlygeek/tabular' " Needed tp be installed before vim-markdown
@@ -205,3 +205,12 @@ endfunction
 "	 \/  | |  |    |  | |  | |  \ | \_ |__/ |__| |_|_| | \|
 
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_conceal
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_fenced_languages = ['python=py', 'viml=vim', 'bash=sh', 'ini=dosini', 'markdown=md', 'html=html']
+let g:vim_markdown_follow_anchor = 1
+set conceallevel=2
+let g:vim_markdown_no_extensions_in_markdown = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'tab'
+
