@@ -8,6 +8,8 @@ alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"'
 
 alias weather="curl wttr.in/indianapolis"
 
+alias rcloneweb="rclone rcd --rc-web-gui --rc-user=admin --rc-pass=pass --rc-serve"
+
 alias sudo=$'nocorrect sudo\t'
 #alias sudo='sudo '
 #alias nsudo='nocorrect sudo'
