@@ -205,7 +205,7 @@ endfunction
 "	 \/  | |  |    |  | |  | |  \ | \_ |__/ |__| |_|_| | \|
 
 let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_conceal
+let g:vim_markdown_conceal = 1
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_fenced_languages = ['python=py', 'viml=vim', 'bash=sh', 'ini=dosini', 'markdown=md', 'html=html']
 let g:vim_markdown_follow_anchor = 1
