@@ -11,14 +11,11 @@ Plug 'junegunn/vim-easy-align'
 Plug 'brooth/far.vim'
 Plug 'ycm-core/YouCompleteMe'
 Plug 'whiteinge/diffconflicts'
-Plug 'mrtazz/simplenote.vim'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
-Plug 'wincent/command-t'
 Plug '~/.local/share/nvim/plugged/csapprox'
 Plug 'mhinz/vim-startify'
-Plug 'freeo/vim-salisi'
 Plug 'rigellute/rigel'
 Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
@@ -42,7 +39,17 @@ Plug 'lilydjwg/colorizer'
 Plug 'agude/vim-eldar'
 Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
+Plug 'lukaszkorecki/workflowish'
+Pfszymanski/fzf-gitignore'lug 'junegunn/vim-peekaboo'
+
+" INSTALLED AND CONIGURED AND PROBABLY USED
+Plug 'godlygeek/tabular' " Needed tp be installed before vim-markdown
+Plug 'plasticboy/vim-markdown'
 Plug 'wakatime/vim-wakatime'
+Plug 'mrtazz/simplenote.vim'
+
+" THEMES 
+Plug 'junegunn/seoul256.vim'
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 Plug 'prettier/vim-prettier', {
@@ -69,7 +76,8 @@ let mapleader = ","
 " map <F2> :echo 'Current time is ' . strftime('%c')<CR>
 " map! <F3> <C-R>=strftime('%c')<CR>
 " nnoremap <silent> <F4> :lchdir %:p:h<CR>:pwd<CR>
-imap ,t <Esc>:tabnew<CR>
+map <Leader>t <Esc>:tabnew<CR>
+map <Leader>st <Esc>:Startify<CR>
 
 " ============  SIMPLENOTE SETTINGS  ============
 let g:SimplenoteUsername = "chadboyce@gmail.com"
@@ -84,7 +92,8 @@ set nobackup         " Don't create annoying backup files
 set noswapfile       " Dont' use swapfile
 set pastetoggle=<F2> " Paste mode toggle to paste code properly
 set scrolloff=5      " start scrolling 5 lines before edge of viewpoint
-set number
+set number 
+set rnu              " sets relative numbers
 set spelllang=en
 " set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
 
@@ -108,7 +117,7 @@ set smartindent
 
 
 " CDC = Change to Directory of Current file
-" command CDC cd %:p:h
+command CDC cd %:p:h
 
 " Unsplits long lines copied from terminal
 " command Unsplit g/^.\{79}\S$/normal Jx
@@ -158,17 +167,41 @@ let g:startify_custom_header =
 
 set showcmd
 
-" =========---------  MerdTREE Settings  ---------=========
+" =========---------  MerdTREE SETTINGS  ---------=========
 
-noremap <Leader>f :NERDTreeToggle<Enter>
-noremap <silent> <Leader>v :NERDTreeFind<CR>
+noremap <Leader>nt :NERDTreeToggle<CR>
+
 " Automatically close NerdTree when you open a file
-let NERDTreeQuitOnOpen = 1
-" autocmd bufenter * if (winnr(“$”) == 1 && exists(“b:NERDTreeType”) && b:NERDTreeType == “primary”) | q | endif
+" let NERDTreeQuitOnOpen = 1
+
 " Automatically delete the buffer of the file you just deleted with NerdTree
 let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeSortHiddenFirst = 1
 let NERDTreeShowHidden = 1
+let NERDTreeSortHiddenFirst = 1
+let NERDTreeShowBookmarks = 1
 
-let NERDTreeCustomOpenArgs = {'file':{'where': 't'}, 'dir':{'where':'t'}}
+" let NERDTreeCustomOpenArgs = {'file':{'where': 't'}, 'dir':{'where':'t'}}
 
+"let g:python_host_prog  = 'c:\python27\python.exe'
+
+"let g:python3_host_prog = 'c:\miniconda3\python.exe'
+
+function Header(width, word)
+    let a:inserted_word = ' ' . a:word . ' '
+    let a:word_width = strlen(a:inserted_word)
+    let a:length_before = (a:width - a:word_width) / 2
+    let a:hashes_before = repeat('#', a:length_before)
+    let a:hashes_after = repeat('#', a:width - (a:word_width + a:length_before))
+    let a:hash_line = repeat('#', a:width)
+    let a:word_line = a:hashes_before . a:inserted_word . a:hashes_after
+
+    :put =a:hash_line
+    :put =a:word_line
+    :put =a:hash_line
+endfunction
+
+"	_  _ _ _  _    _  _ ____ ____ _  _ ___  ____ _ _ _ _  _
+"	|  | | |\/| __ |\/| |__| |__/ |_/  |  \ |  | | | | |\ |
+"	 \/  | |  |    |  | |  | |  \ | \_ |__/ |__| |_|_| | \|
+
+let g:vim_markdown_toc_autofit = 1

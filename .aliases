@@ -4,11 +4,17 @@ alias v=nvim
 
 alias cls=clear
 
+alias gogh='bash -c  "$(wget -qO- https://git.io/vQgMr)"' 
+
 alias weather="curl wttr.in/indianapolis"
 
 alias sudo=$'nocorrect sudo\t'
 #alias sudo='sudo '
 #alias nsudo='nocorrect sudo'
+
+alias update='sudo apt-get update && sudo apt-get upgrade'
+
+alias nlpath='echo -e ${PATH//:/"\n"}'
 
 alias cp='cpg -g'
 alias mv='mvg -g'
@@ -20,14 +26,16 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
-alias gh='/mnt/c/Users/Chad/Documents/GitHub/'
+#alias -g gh='/mnt/c/Users/Chad/Documents/GitHub/'
 alias ~w='/mnt/c/Users/Chad/'
 alias videos='/mnt/c/Users/Chad/Videos/'
 alias documents='/mnt/c/Users/Chad/Documents/'
 alias music='/mnt/c/Users/Chad/Music/'
 
+alias dots='/home/chad/dotfiles/'
 
-alias qr=qrcode-terminal
+# ===========  SET FIRST GLOBAL VARIABLE FOR TEST  ==========
+alias -g ~W='/mnt/c/users/chad/'
 
 alias path='echo $PATH | tr ":" "\n" | nl'
 
@@ -38,14 +46,6 @@ alias ixio="curl -F 'f:1=<-' ix.io"
 
 alias open='cmd.exe /C start'
 
-# FUNCTIONS
-
-function path_remove {
-  # Delete path by parts so we can never accidentally remove sub paths
-  PATH=${PATH//":$1:"/":"} # delete any instances in the middle
-  PATH=${PATH/#"$1:"/} # delete any instance at the beginning
-  PATH=${PATH/%":$1"/} # delete any instance in the at the end
-}
 
 alias tb="nc termbin.com 9999"
 alias tbc="netcat termbin.com 9999 | clip.exe"
@@ -56,12 +56,6 @@ alias starwars='telnet towel.blinkenlights.nl'
 
 alias matrix='cmatrix -ba'
 
-function delete_dirs {
-  find . -maxdepth 1 -type d -print0 | while IFS= read -r -d '' dir; do
-      [ $(du -s "$dir") -le 102400 ] && echo "$dir";
-#      [ $(du -s "$dir") -le 102400 ] && rm -f "$dir"
-done
-}
 
 alias mklink=" . ~/bin/mklink.sh"
 
@@ -99,8 +93,11 @@ alias gp='git pull'
 alias gf='git fetch'
 
 # egrep with colored output
-alias -g G="|& egrep --color"
+alias -g C="|& egrep --color"
 # show newest file in directory
 alias -g NF='*(.om[1])'
+
+# pipe to windows clipboard
+alias -g clipb="| clip.exe"
 
 
