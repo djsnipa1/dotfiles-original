@@ -28,11 +28,12 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
-#alias -g gh='/mnt/c/Users/Chad/Documents/GitHub/'
+# ================== WINDOWS DIRECTORIES ====================
 alias ~w='/mnt/c/Users/Chad/'
 alias videos='/mnt/c/Users/Chad/Videos/'
 alias documents='/mnt/c/Users/Chad/Documents/'
 alias music='/mnt/c/Users/Chad/Music/'
+alias downloads='/mnt/c/Users/Chad/Downloads/'
 
 alias dots='/home/chad/dotfiles/'
 
@@ -100,6 +101,6 @@ alias -g C="|& egrep --color"
 alias -g NF='*(.om[1])'
 
 # pipe to windows clipboard
-alias -g clipb="| clip.exe"
+alias -g clip="| clip.exe"
 
 
