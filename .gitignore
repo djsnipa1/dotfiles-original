@@ -1,7 +1,8 @@
 
-
+Keypirinha/User/Keypirinha.history
+Keypirinha/User/PackageControl.ini
 beets/beatport_token.json
-
+**.bak
 # Created by https://www.gitignore.io/api/linux,
 # Edit at https://www.gitignore.io/?templates=linux,
 
@@ -23,4 +24,37 @@ beets/beatport_token.json
 .nfs*
 
 # End of https://www.gitignore.io/api/linux,
+nn
+
+# Created by https://www.gitignore.io/api/vim,
+# Edit at https://www.gitignore.io/?templates=vim,
+
+#!! ERROR:  is undefined. Use list command to see defined gitignore types !!#
+
+### Vim ###
+# Swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
+# Session
+Session.vim
+Sessionx.vim
+
+# Temporary
+.netrwhist
+*~
+
+# Auto-generated tag files
+tags
+
+# Persistent undo
+[._]*.un~
+
+# Coc configuration directory
+.vim
+
+# End of https://www.gitignore.io/api/vim,
 nn

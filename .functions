@@ -5,9 +5,63 @@
 # |___|    |_____|__|__|____||____|__||_____|__|__|_____|
 #                                                        
 
-# git commit  
-# https://www.phillip-kruger.com/post/some_bash_functions_for_git/
+# qr code for curl qrenco.de
+function qr {
+    printf "$@" | curl -F-=\<- qrenco.de     
+}
 
+# tar.gz uncompress
+function untar.gz {
+    tar zxvf "$1" -C 
+
+}
+# youtube-dl
+# ytdl
+function ytdl {
+
+    echo "download subs? y/n ...";
+    read yn;
+    
+#                commit "$msg";
+    if [ $yn -eq 'n' ]; then
+        echo "Downloading without subtitles";
+        echo youtube-dl "$1";
+        youtube-dl "$1"
+    else
+        echo "Gettin shit wit subz!";
+        echo youtube-dl --write-auto-sub "$1";
+        youtube-dl --write-auto-sub "$1";
+    fi
+
+}
+
+# Functio github repo
+function gh {
+
+    if [ $# -eq 0 ]; then 
+        cd /mnt/c/Users/Chad/Documents/GitHub  
+    else
+        cd /mnt/c/Users/Chad/Documents/GitHub/$1
+    fi
+}
+
+# view .md files in terminal
+mdless() {
+    # This was the original function
+    # mdcat -c yes "$@" | less -R
+    glow "$@" -s dark | less -r
+}
+
+# mdless
+# view .md files in terminal
+mdless2() {
+    # This was the original function
+    # mdcat -c yes "$@" | less -R
+    mdcat "$@" | less -R
+}
+
+# git commit  
+# hhttps://www.phillip-kruger.com/post/some_bash_functions_for_git/
 function commit {
 
         if [ $# -eq 0 ]; then
@@ -24,39 +78,94 @@ function commit {
         fi
     }
 
-    export -f commit 
+#    export -f commit 
+function pyfig {
+    if [ $# -eq 0 ]; then 
+        echo "ya fukked up";
+        read msg;
+        pyfig "$msg";
+    elif [[ $1 == --help ]] || [[ $1 == --h ]] || [[ $1 == --? ]]; then
+        echo "Make some pyfiglet";
+    else 
+       # echo pyfiglet -f "$1" "$2"
+        pyfiglet -f "$1" "$2";
+    fi
+}
 
 
 # Because I usually clone repos from my github account, this is a shortcut that allows me to just type clone *repo_name* and it will create the URL.
 
+function clone {
 
-    function clone {
+    if [ $# -eq 0 ]; then
+        echo "Please enter repo name or full url:";
+        read repo;
+        clone $repo;
+    elif [[ $1 == http://* ]] || [[ $1 == --help ]] || [[ $1 == --h ]] || [[ $1 == --? ]]; then
+        echo "This will clone a git repo.";
+        echo "";
+        echo "Option 1: You can just provide the name, eg:";
+        echo "$ clone dotfiles";
+        echo "This will do: git clone https://github.com/djsnipa1/dotfiles.git";
+        echo "";
+        echo "Option 2: Provide the full URL";
+        echo "$ clone https://github.com/smallrye/smallrye-rest-client.git";
+        echo "This will do: git clone https://github.com/smallrye/smallrye-rest-client.git";
+    else    
+        if [[ $1 == http://* ]] || [[ $1 == https://* ]] || [[ $1 == git://* ]] || [[ $1 == ssh://* ]] ; then
+            URL=$1;
+        else
+            URL='https://github.com/djsnipa1/'$1'.git';
+        fi    
 
-        if [ $# -eq 0 ]; then
-            echo "Please enter repo name or full url:";
-            read repo;
-            clone $repo;
-        elif [[ $1 == --help ]] || [[ $1 == --h ]] || [[ $1 == --? ]]; then
-            echo "This will clone a git repo.";
-            echo "";
-            echo "Option 1: You can just provide the name, eg:";
-            echo "$ clone dotfiles";
-            echo "This will do: git clone https://github.com/djsnipa1/dotfiles.git";
-            echo "";
-            echo "Option 2: Provide the full URL";
-            echo "$ clone https://github.com/smallrye/smallrye-rest-client.git";
-            echo "This will do: git clone https://github.com/smallrye/smallrye-rest-client.git";
-        else    
-            if [[ $1 == https://* ]] || [[ $1 == git://* ]] || [[ $1 == ssh://* ]] ; then
-                URL=$1;
-            else
-                URL='https://github.com/djsnipa1/'$1'.git';
-            fi    
+        echo git clone "$URL";
+        git clone "$URL";
+    fi
+}
 
-            echo git clone "$URL";
-            git clone "$URL";
-        fi
-    }
 
-    export -f clone
+# gitignore 
+function gi() { curl -sLw n https://www.gitignore.io/api/$@ ;}
+
+
+# OLD FUNCTIONS n' SHIT 
+
+function path_remove {
+  # Delete path by parts so we can never accidentally remove sub paths
+  PATH=${PATH//":$1:"/":"} # delete any instances in the middle
+  PATH=${PATH/#"$1:"/} # delete any instance at the beginning
+  PATH=${PATH/%":$1"/} # delete any instance in the at the end
+}
+
+function delete_dirs {
+  find . -maxdepth 1 -type d -print0 | while IFS= read -r -d '' dir; do
+      [ $(du -s "$dir") -le 102400 ] && echo "$dir";
+#      [ $(du -s "$dir") -le 102400 ] && rm -f "$dir"
+  done
+}
+
+# Update rclone with -U
+rclone() { if [[ $@ == "-U" ]]; then command curl https://rclone.org/install.sh | sudo bash; else command rclone "$@"; fi; }
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+#open explorer in working directoy
+#xplor(){
+#    explorer.exe "C:\Users\chad\AppData\Local\Lxss$(sed 's:/:\\:g' <<<"$PWD")";
+#}
+
+xplor()
+{
+    explorer.exe  `wslpath -w "$1"`
+}
+
+
+start() {
+    cmd.exe //c start "${@//&/^&}"
+}
+
 
