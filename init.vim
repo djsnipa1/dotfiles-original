@@ -20,7 +20,7 @@ Plug '~/.local/share/nvim/plugged/csapprox'
 Plug 'mhinz/vim-startify'
 Plug 'freeo/vim-salisi'
 Plug 'rigellute/rigel'
-Plug 'roxma/nvim-completion-manager'
+"Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'nanotech/jellybeans.vim'
@@ -44,10 +44,12 @@ Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug 'wakatime/vim-wakatime'
 
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
 " post install (yarn install | npm install) then load plugin only for editing supported files
-Plug 'prettier/vim-prettier', {
-     \ 'do': 'yarn install',
-     \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" Plug 'prettier/vim-prettier', {
+"      \ 'do': 'yarn install',
+"      \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 
 " added from neovim install tutorial https://bin.wf/9xxt
@@ -57,7 +59,8 @@ Plug 'prettier/vim-prettier', {
 
 " On-demand loading
 Plug 'mbbill/undotree', { 'on': 'UndoTreeToggle' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
+Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
 Plug 'scrooloose/nerdcommenter'
 call plug#end()
@@ -66,10 +69,11 @@ call plug#end()
 let mapleader = ","
 
 " ============  REMAP KEYS  =============
-" map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+map <F2> :echo 'Current time is ' . strftime('%c')<CR>
 " map! <F3> <C-R>=strftime('%c')<CR>
 " nnoremap <silent> <F4> :lchdir %:p:h<CR>:pwd<CR>
-imap ,t <Esc>:tabnew<CR>
+noremap ,t <Esc>:tabnew<CR>
+noremap <silent> ,s :up<CR>
 
 " ============  SIMPLENOTE SETTINGS  ============
 let g:SimplenoteUsername = "chadboyce@gmail.com"
@@ -87,6 +91,7 @@ set scrolloff=5      " start scrolling 5 lines before edge of viewpoint
 set number
 set spelllang=en
 " set spellfile=$HOME/Dropbox/vim/spell/en.utf-8.add
+set rnu             " Relative numbers
 
 " =========---------  VISUAL SETTINGS  ---------=========
 set termguicolors    " sets terminal to true colors (I think)
@@ -171,4 +176,9 @@ let NERDTreeSortHiddenFirst = 1
 let NERDTreeShowHidden = 1
 
 let NERDTreeCustomOpenArgs = {'file':{'where': 't'}, 'dir':{'where':'t'}}
+
+
+
+" To use fzf in Vim, add the following line to your .vimrc:
+set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
 

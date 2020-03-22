@@ -14,6 +14,9 @@ alias sudo=$'nocorrect sudo\t'
 #alias sudo='sudo '
 #alias nsudo='nocorrect sudo'
 
+# COPY LAST COMMAND TO CLIPBOARD
+alias clc='fc -ln -1 | awk '{$1=$1}1' | clip.exe '
+
 alias update='sudo apt-get update && sudo apt-get upgrade'
 
 alias nlpath='echo -e ${PATH//:/"\n"}'
@@ -73,14 +76,14 @@ wslttythemes='/mnt/c/Users/Chad/AppData/Roaming/wsltty/themes'
 #    \/_/     \/_/\/_/   \/_____/   \/____/
 #
 #
-alias a='fasd -a'        # any
-alias s='fasd -si'       # show / search / select
-alias d='fasd -d'        # directory
-alias f='fasd -f'        # file
-alias sd='fasd -sid'     # interactive directory selection
-alias sf='fasd -sif'     # interactive file selection
-alias z='fasd_cd -d'     # cd, same functionality as j in autojump
-alias zz='fasd_cd -d -i' # cd with interactive selection
+#alias a='fasd -a'        # any
+#alias s='fasd -si'       # show / search / select
+#alias d='fasd -d'        # directory
+#alias f='fasd -f'        # file
+#alias sd='fasd -sid'     # interactive directory selection
+#alias sf='fasd -sif'     # interactive file selection
+#alias z='fasd_cd -d'     # cd, same functionality as j in autojump
+#alias zz='fasd_cd -d -i' # cd with interactive selection
 
 #           __ __   
 #   .-----.|__|  |_ 
@@ -102,5 +105,22 @@ alias -g NF='*(.om[1])'
 
 # pipe to windows clipboard
 alias -g clip="| clip.exe"
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias -g alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+#--------------------------
+#| # UPDATE PIP3 PACKAGES |
+#--------------------------
+alias -g pip3update="pip3 list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+
+alias pip="python3 -m pip "
+
+alias -g L='| less'
+
+alias -g G='| grep'
+
+alias server='python -m SimpleHTTPServer 8000'
 
 

@@ -5,7 +5,7 @@ import:
 ui:
     color: yes
 
-plugins: beatport spotify fromfilename edit web info
+plugins: beatport spotify fromfilename edit web info alternatives
 
 playlist:
     auto: no

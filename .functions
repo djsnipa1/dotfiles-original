@@ -95,6 +95,25 @@ function pyfig {
 
 # Because I usually clone repos from my github account, this is a shortcut that allows me to just type clone *repo_name* and it will create the URL.
 
+function aptget {
+
+    if [ $# -eq 0 ]; then
+        pyfiglet -f shimrod "Please enter package to install:";
+        read apt;
+        pyfiglet -f banner3-D "$apt" | lolcat; 
+        echo 'Nice choice! Puto is getting it ready now...'
+        sudo apt-get install $apt;
+    elif [[ $1 == http://* ]] || [[ $1 == --help ]] || [[ $1 == -h ]] || [[ $1 == ? ]]; then
+        pyfiglet -f doh -w 120 "HELP!" | lolcat;
+        # echo "";
+        pyfiglet -f short "This will install a package via apt-get.";
+    else
+        pyfiglet -f banner3-D "$1" | lolcat; 
+        pyfiglet -f shimrod "sudo apt-get install $1"; 
+        sudo apt-get install $1;
+    fi
+}
+
 function clone {
 
     if [ $# -eq 0 ]; then
@@ -168,4 +187,40 @@ start() {
     cmd.exe //c start "${@//&/^&}"
 }
 
+pastebin()
+{
+    local url='https://paste.c-net.org/'
+    if (( $# )); then
+        local file
+        for file; do
+            curl -s \
+                --data-binary @"$file" \
+                --header "X-FileName: ${file##*/}" \
+                "$url"
+        done
+    else
+        curl -s --data-binary @- "$url"
+    fi
+}
+pasteget()
+{
+    local url='https://paste.c-net.org/'
+    if (( $# )); then
+        local arg
+        for arg; do
+            curl -s "${url}${arg##*/}"
+        done
+    else
+        local arg
+        while read -r arg; do
+            curl -s "${url}${arg##*/}"
+        done
+    fi
+}
 
+
+transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi 
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; } 
+
+# GIT ADD COMMIT PUSH
+acp() { git add . git commit -m "$1" git push }

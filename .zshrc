@@ -6,8 +6,12 @@
 #   _|  _|\___/  _|  ____/
 #   
 
+# git log -1 | cowsay -f dragon-and-cow | lolcat
 
-git log -1 | cowsay -f dragon-and-cow | lolcat
+cat ~/motd.txt | lolcat 
+
+export SPOTIPY_CLIENT_ID='47037c98ac8749cf96ff579bc46764fc'
+export SPOTIPY_CLIENT_SECRET='3f2566974ea84c0db0acfec9e2818316'
 
 #	  _  ____   _  _____ _   _
 # 	 | ||  _ \ / \|_   _| | | |
@@ -119,3 +123,17 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && \
     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
         eval "$("$BASE16_SHELL/profile_helper.sh")"
+# TO CHANGE DIRECTORY WHEN LAUNCHING
+cd ~
+
+# marker.sh keybindings
+# export MARKER_KEY_MARK='\C-k'
+# export MARKER_KEY_NEXT_PLACEHOLDER='\C-4'
+# source marker.sh
+[[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+
+
+# ADDED FOR s-search (installed via brew) AUTO COMPLETE
+if [ -f /home/chad/.config/autocomplete/s-completion.bash ]; then
+    . /home/chad/.config/autocomplete/s-completion.bash 
+fi
