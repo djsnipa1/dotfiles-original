@@ -10,6 +10,7 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 " Make sure you use single quotes
 
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-vinegar'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-easy-align'
@@ -87,11 +88,18 @@ call plug#end()
 let mapleader = ","
 
 " ============  REMAP KEYS  =============
-map <F2> :echo 'Current time is ' . strftime('%c')<CR>
+map <Leader>ti <Esc>:echo 'Current time is ' . strftime('%c')<CR>
 " map! <F3> <C-R>=strftime('%c')<CR>
 " nnoremap <silent> <F4> :lchdir %:p:h<CR>:pwd<CR>
-noremap ,t <Esc>:tabnew<CR>
-noremap <silent> ,s :up<CR>
+
+" SAVE FILE
+noremap <Leader>s <Esc>:up<CR>
+
+" TABS
+noremap nt <Esc>:tabnew<CR> 
+noremap ct <Esc>:tabclose<CR>
+noremap tn <Esc>:tabnext<CR>
+noremap tp <Esc>:tabprevious<CR> 
 
 " ============  SIMPLENOTE SETTINGS  ============
 let g:SimplenoteUsername = "chadboyce@gmail.com"
@@ -193,7 +201,7 @@ set showcmd
 
 " =========---------  MerdTREE Settings  ---------=========
 
-noremap <Leader>f :NERDTreeToggle<Enter>
+noremap <Leader>f :NERDTreeToggle<CR>
 noremap <silent> <Leader>v :NERDTreeFind<CR>
 " Automatically close NerdTree when you open a file
 let NERDTreeQuitOnOpen = 1
