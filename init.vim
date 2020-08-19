@@ -51,6 +51,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'godlygeek/tabular'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'plasticboy/vim-markdown'
+Plug 'cespare/vim-toml'
 
 " Plugin to export code images via carbon.now
 Plug 'kristijanhusak/vim-carbon-now-sh'
