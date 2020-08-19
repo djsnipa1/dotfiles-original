@@ -9,69 +9,53 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Make sure you use single quotes
 
-" My must have plugins
-Plug 'mrtazz/simplenote.vim'
-Plug 'mhinz/vim-startify'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'vim-airline/vim-airline'
-Plug 'plasticboy/vim-markdown'
-Plug 'tpope/vim-vinegar'
-
-" colorschemes and visual plugins
-Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
-Plug 'shinchu/lightline-gruvbox.vim'
-
-" Trying Out Plugins
-Plug 'sjl/gundo.vim'
-
-" additional colorschemes
-Plug 'nanotech/jellybeans.vim'
-Plug 'rigellute/rigel'
-
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-vinegar'
-Plug 'easymotion/vim-easymotion'
+"Plug 'tpope/vim-sensible'
+"Plug 'tpope/vim-vinegar'
+"Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/vim-easy-align'
-Plug 'brooth/far.vim'
-Plug 'whiteinge/diffconflicts'
+"Plug 'junegunn/vim-easy-align'
+"Plug 'brooth/far.vim'
+"Plug 'whiteinge/diffconflicts'
+Plug 'mrtazz/simplenote.vim'
 Plug 'dbeniamine/cheat.sh-vim'
-" Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-" Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
-Plug 'wincent/command-t'
-Plug '~/.local/share/nvim/plugged/csapprox'
-"Plug 'roxma/nvim-completion-manager'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'rkitover/vimpager'
-Plug 'ofavre/vimcat'
-"Plug 'junegunn/limelight.vim'
-Plug 'editorconfig/editorconfig'
+"Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+"Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
+"Plug 'wincent/command-t'
+"Plug '~/.local/share/nvim/plugged/csapprox'
+Plug 'mhinz/vim-startify'
+Plug 'rigellute/rigel'
+""Plug 'roxma/nvim-completion-manager'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
+"Plug 'nanotech/jellybeans.vim'
+"Plug 'vim-airline/vim-airline'
+"Plug 'rkitover/vimpager'
+"Plug 'ofavre/vimcat'
+Plug 'junegunn/limelight.vim'
+Plug 'itchyny/lightline.vim'
+"Plug 'editorconfig/editorconfig'
+Plug 'morhetz/gruvbox'
+Plug 'shinchu/lightline-gruvbox.vim'
+"Plug 'sjl/gundo.vim'
 Plug 'sk1418/blockit'
 Plug 'fadein/vim-FIGlet'
-Plug 'justinmk/vim-sneak'
+"Plug 'justinmk/vim-sneak'
 Plug 'freeo/vim-kalisi'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'zanglg/nova.vim'
-Plug 'lilydjwg/colorizer'
-Plug 'agude/vim-eldar'
-Plug 'flazz/vim-colorschemes'
-Plug 'felixhummel/setcolors.vim'
-Plug 'wakatime/vim-wakatime'
+"Plug 'lilydjwg/colorizer'
+"Plug 'agude/vim-eldar'
+"Plug 'flazz/vim-colorschemes'
+"Plug 'felixhummel/setcolors.vim'
+""Plug 'wakatime/vim-wakatime'
 Plug 'godlygeek/tabular'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'plasticboy/vim-markdown'
 
 " Plugin to export code images via carbon.now
 Plug 'kristijanhusak/vim-carbon-now-sh'
 
-
-" Python Setup
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
-Plug 'jiangmiao/auto-pairs'
-
-
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+"Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
 " post install (yarn install | npm install) then load plugin only for editing supported files
 " Plug 'prettier/vim-prettier', {
@@ -85,18 +69,18 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 " Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'mbbill/undotree', { 'on': 'UndoTreeToggle' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
-Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
-Plug 'scrooloose/nerdcommenter'
+"Plug 'mbbill/undotree', { 'on': 'UndoTreeToggle' }
+"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeTabsToggle' }
+"Plug 'jistr/vim-nerdtree-tabs', { 'on': 'NERDTreeTabsToggle' }
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight', { 'on': 'NERDTreeToggle' }
+"Plug 'scrooloose/nerdcommenter'
 
 " If you don't have nodejs and yarn
 " use pre build, add 'vim-plug' to the filetype list so vim-plug can update this plugin
 " see: https://github.com/iamcco/markdown-preview.nvim/issues/50
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -265,10 +249,7 @@ inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
-let g:table_mode_corner='|'
-let g:table_mode_align_char = ':'
-let g:table_mode_delimiter = ','
-
+" =========---------  TABLE MODE SETTINGS ---------=========
 noremap <Leader>tm :TableModeToggle<Enter>
 noremap <Leader>tr :TableModeRealign<Enter>
 noremap <Leader>tt :Tabelize
@@ -277,7 +258,6 @@ noremap <Leader>tdc g:table_mode_delete_column_map
 noremap <Leader>tic g:table_mode_insert_column_after_map
 
 " =========---------  Markdown Preview Config ---------=========
-
 " set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
@@ -377,16 +357,12 @@ function! GetSyntax()
     exec "hi ".synIDattr(GetSyntaxParentID(), 'name')
 endfunction
 
-" =========---------  VimWiki Settings ---------=========
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0
+" =========---------  END MARKDOWN PREVIEW SETTINGS  ---------=========
 
-" =========---------  vim-ranger settings --------=========
-"let g:NERDTreeHijackNetrw = 0 " dd this line if you use NERDTree
-"let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
-
-" =========---------  Gundo Settings --------=========
-nnoremap <F5> :GundoToggle<CR>
-let g:gundo_prefer_python3 = 1
-
+" =========---------  EDIT VIM.CAST  ---------=========
+" The :edit command - http://vimcasts.org/episodes/the-edit-command/
+cnoremap %% <C-R>=fnameescape(expand('%:h')).'/'<cr>
+map <leader>ew :e %%
+map <leader>es :sp %%
+map <leader>ev :vsp %%
+map <leader>et :tabe %%
