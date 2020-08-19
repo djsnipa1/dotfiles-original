@@ -9,6 +9,26 @@ call plug#begin('~/AppData/Local/nvim/plugged')
 
 " Make sure you use single quotes
 
+" My must have plugins
+Plug 'mrtazz/simplenote.vim'
+Plug 'mhinz/vim-startify'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'vim-airline/vim-airline'
+Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-vinegar'
+
+" colorschemes and visual plugins
+Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
+Plug 'shinchu/lightline-gruvbox.vim'
+
+" Trying Out Plugins
+Plug 'sjl/gundo.vim'
+
+" additional colorschemes
+Plug 'nanotech/jellybeans.vim'
+Plug 'rigellute/rigel'
+
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-vinegar'
 Plug 'easymotion/vim-easymotion'
@@ -16,27 +36,18 @@ Plug 'tpope/vim-fugitive'
 Plug 'junegunn/vim-easy-align'
 Plug 'brooth/far.vim'
 Plug 'whiteinge/diffconflicts'
-Plug 'mrtazz/simplenote.vim'
 Plug 'dbeniamine/cheat.sh-vim'
-Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
+" Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
+" Plug 'fszymanski/fzf-gitignore', {'do': ':UpdateRemotePlugins'}
 Plug 'wincent/command-t'
 Plug '~/.local/share/nvim/plugged/csapprox'
-Plug 'mhinz/vim-startify'
-Plug 'rigellute/rigel'
 "Plug 'roxma/nvim-completion-manager'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'nanotech/jellybeans.vim'
-Plug 'vim-airline/vim-airline'
 Plug 'rkitover/vimpager'
 Plug 'ofavre/vimcat'
 "Plug 'junegunn/limelight.vim'
-Plug 'itchyny/lightline.vim'
 Plug 'editorconfig/editorconfig'
-Plug 'morhetz/gruvbox'
-Plug 'shinchu/lightline-gruvbox.vim'
-Plug 'sjl/gundo.vim'
 Plug 'sk1418/blockit'
 Plug 'fadein/vim-FIGlet'
 Plug 'justinmk/vim-sneak'
@@ -49,12 +60,17 @@ Plug 'flazz/vim-colorschemes'
 Plug 'felixhummel/setcolors.vim'
 Plug 'wakatime/vim-wakatime'
 Plug 'godlygeek/tabular'
-Plug 'dhruvasagar/vim-table-mode'
-Plug 'plasticboy/vim-markdown'
 Plug 'cespare/vim-toml'
 
 " Plugin to export code images via carbon.now
 Plug 'kristijanhusak/vim-carbon-now-sh'
+
+
+" Python Setup
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'jiangmiao/auto-pairs'
+
 
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 
@@ -366,3 +382,12 @@ endfunction
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_global_ext = 0
+
+" =========---------  vim-ranger settings --------=========
+"let g:NERDTreeHijackNetrw = 0 " dd this line if you use NERDTree
+"let g:ranger_replace_netrw = 1 " open ranger when vim open a directory
+
+" =========---------  Gundo Settings --------=========
+nnoremap <F5> :GundoToggle<CR>
+let g:gundo_prefer_python3 = 1
+
